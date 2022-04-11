@@ -1,10 +1,11 @@
 import React from 'react';
+import './cartinhas.css';
 
 export default class Form extends React.Component {
   render() {
     return (
       <div>
-        <form>
+        <form id="form">
           <label htmlFor="nomeCarta" name="nome">
             Nome da carta:
             <input type="text" id="nomeCarta" data-testid="name-input" />
@@ -12,7 +13,7 @@ export default class Form extends React.Component {
           <label htmlFor="descricaoDaCarta">
             Descrição da carta:
             <input
-              type="textarea"
+              type="email"
               id="descricaoDaCarta"
               data-testid="description-input"
             />
