@@ -5,7 +5,7 @@ export default class Form extends React.Component {
   render() {
     return (
       <div>
-        <form id="form">
+        <form className="form">
           <label htmlFor="nomeCarta" name="nome">
             Nome da carta:
             <input type="text" id="nomeCarta" data-testid="name-input" />
