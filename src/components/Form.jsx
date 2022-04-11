@@ -11,7 +11,11 @@ export default class Form extends React.Component {
           </label>
           <label htmlFor="descricaoDaCarta">
             Descrição da carta:
-            <textarea name="" id="descricaoDaCarta" data-testid="description-input" />
+            <input
+              type="textarea"
+              id="descricaoDaCarta"
+              data-testid="description-input"
+            />
           </label>
           <label htmlFor="atributo1">
             Primeiro atributo da Carta:
@@ -34,7 +38,7 @@ export default class Form extends React.Component {
             <select name="" id="Raridade" data-testid="rare-input">
               <option value="normal">Normal</option>
               <option value="raro">Raro</option>
-              <option value="muitoRaro">Muito raro</option>
+              <option value="muito raro">Muito raro</option>
             </select>
           </label>
           <label htmlFor="trunfo">
