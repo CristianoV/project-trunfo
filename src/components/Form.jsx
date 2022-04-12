@@ -34,7 +34,7 @@ class Form extends React.Component {
           <label htmlFor="descricaoDaCarta">
             Descrição da carta:
             <input
-              type="email"
+              type="textarea"
               id="descricaoDaCarta"
               data-testid="description-input"
               name="cardDescription"
