@@ -14,13 +14,14 @@ class App extends React.Component {
       cardRare: 'normal',
       cardTrunfo: true,
       // hasTrunfo: true,
-      isSaveButtonDisabled: false,
+      isSaveButtonDisabled: true,
     };
   }
 
   inputChange = ({ target }) => {
     const { name } = target;
-    this.setState({ [name]: target.value });
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    this.setState({ [name]: value });
   };
 
   render() {
