@@ -47,6 +47,8 @@ class Form extends React.Component {
             <input
               type="number"
               id="atributo1"
+              min="0"
+              max="90"
               data-testid="attr1-input"
               name="cardAttr1"
               value={ cardAttr1 }
@@ -58,6 +60,8 @@ class Form extends React.Component {
             <input
               type="number"
               id="atributo2"
+              min="0"
+              max="90"
               data-testid="attr2-input"
               name="cardAttr2"
               value={ cardAttr2 }
@@ -69,6 +73,8 @@ class Form extends React.Component {
             <input
               type="number"
               id="atributo3"
+              min="0"
+              max="90"
               data-testid="attr3-input"
               name="cardAttr3"
               value={ cardAttr3 }
@@ -128,9 +134,9 @@ class Form extends React.Component {
 Form.propTypes = {
   cardName: PropTypes.string.isRequired,
   cardDescription: PropTypes.string.isRequired,
-  cardAttr1: PropTypes.number.isRequired,
-  cardAttr2: PropTypes.number.isRequired,
-  cardAttr3: PropTypes.number.isRequired,
+  cardAttr1: PropTypes.string.isRequired,
+  cardAttr2: PropTypes.string.isRequired,
+  cardAttr3: PropTypes.string.isRequired,
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
