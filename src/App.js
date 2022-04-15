@@ -90,7 +90,7 @@ class App extends React.Component {
   }
 
   render() {
-    // this.teste(this.state);
+    const { cards } = this.state;
     return (
       <div>
         <h1>Tryunfo</h1>
@@ -100,6 +100,10 @@ class App extends React.Component {
           onSaveButtonClick={ this.SaveButtonClick }
         />
         <Card { ...this.state } />
+        { cards[0] && cards.map((cartas) => (<Card
+          { ...cartas }
+          key={ cartas.cardName }
+        />))}
       </div>
     );
   }
