@@ -14,7 +14,8 @@ class App extends React.Component {
       cardImage: '',
       cardRare: 'normal',
       cardTrunfo: false,
-      // hasTrunfo: true,
+      cards: [],
+      hasTrunfo: false,
       isSaveButtonDisabled: true,
     };
   }
@@ -52,25 +53,44 @@ class App extends React.Component {
     this.setState({ [name]: value }, () => this.ButtonDisabled());
   };
 
+  makeCards = (state) => ({
+    cardName: state.cardName,
+    cardDescription: state.cardDescription,
+    cardAttr1: state.cardAttr1,
+    cardAttr2: state.cardAttr2,
+    cardAttr3: state.cardAttr3,
+    cardImage: state.cardImage,
+    cardRare: state.cardRare,
+    cardTrunfo: state.cardTrunfo,
+  });
+
+  // teste = (e) => {
+  //   const { cards } = e;
+  //   const superTrunfo = cards.some((trunfo) => trunfo.cardTrunfo === true);
+  //   console.log(superTrunfo);
+  //   this.setState({ hasTrunfo: true });
+  // }
+
   SaveButtonClick = (event) => {
     event.preventDefault();
-    this.setState(
+    const cardList = this.makeCards(this.state);
+    this.setState((prevState) => (
       {
+        cards: [...prevState.cards, cardList],
         cardName: '',
         cardDescription: '',
         cardAttr1: '0',
         cardAttr2: '0',
         cardAttr3: '0',
+        hasTrunfo: cardList.cardTrunfo,
         cardImage: '',
         cardRare: 'normal',
         cardTrunfo: false,
-        // hasTrunfo: true,
-        isSaveButtonDisabled: true,
-      },
-    );
+      }));
   }
 
   render() {
+    // this.teste(this.state);
     return (
       <div>
         <h1>Tryunfo</h1>
