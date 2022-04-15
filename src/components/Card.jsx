@@ -17,7 +17,8 @@ export default class Card extends React.Component {
         cardAttr3,
         cardImage,
         cardRare,
-        cardTrunfo } = this.props;
+        cardTrunfo,
+      } = this.props;
       return (
         <div>
           <p data-testid="name-card">{ cardName }</p>

@@ -1,6 +1,7 @@
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
+import RemoveCard from './components/removeCard';
 
 class App extends React.Component {
   constructor() {
@@ -64,13 +65,6 @@ class App extends React.Component {
     cardTrunfo: state.cardTrunfo,
   });
 
-  // teste = (e) => {
-  //   const { cards } = e;
-  //   const superTrunfo = cards.some((trunfo) => trunfo.cardTrunfo === true);
-  //   console.log(superTrunfo);
-  //   this.setState({ hasTrunfo: true });
-  // }
-
   SaveButtonClick = (event) => {
     event.preventDefault();
     const cardList = this.makeCards(this.state);
@@ -85,9 +79,17 @@ class App extends React.Component {
         hasTrunfo: cardList.cardTrunfo,
         cardImage: '',
         cardRare: 'normal',
-        cardTrunfo: false,
+        isSaveButtonDisabled: true,
       }));
   }
+
+  deletedCard = (remove) => {
+    this.setState((prevState) => (
+      {
+        hasTrunfo: prevState.cards.some((cartinha) => cartinha.cardTrunfo === false),
+        cards: prevState.cards.filter((cartinha) => cartinha.cardName !== remove),
+      }));
+  };
 
   render() {
     const { cards } = this.state;
@@ -100,10 +102,16 @@ class App extends React.Component {
           onSaveButtonClick={ this.SaveButtonClick }
         />
         <Card { ...this.state } />
-        { cards[0] && cards.map((cartas) => (<Card
-          { ...cartas }
-          key={ cartas.cardName }
-        />))}
+        { cards[0] && cards.map((cartas, index) => (
+          <div key={ `card-${index}` }>
+            <Card { ...cartas } />
+            <RemoveCard
+              { ...this.state }
+              key={ `remove-${index}` }
+              remove={ () => this.deletedCard(cartas.cardName) }
+            />
+          </div>
+        ))}
       </div>
     );
   }
